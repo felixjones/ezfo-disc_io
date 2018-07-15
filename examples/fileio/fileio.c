@@ -67,7 +67,7 @@ int main() {
   irqEnable( IRQ_VBLANK ); // Enable IRQ_VBLANK for VBlankIntrWait
 
   // libgba console
-	consoleDemoInit();
+  consoleDemoInit();
 
   iprintf( "Welcome to GBA file IO demo!\n\n" );
 
