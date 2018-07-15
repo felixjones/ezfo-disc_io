@@ -26,8 +26,8 @@
  * Locks device into loop
  */
 static void waitForever() {
-	for ( EVER ) {
-		VBlankIntrWait();
+  for ( EVER ) {
+    VBlankIntrWait();
   }
 }
 
@@ -39,13 +39,13 @@ static bool initFatSystem() {
   const char * devname;
 
   // Attempt to mount EZFO and change working directory into device
-	if ( fatMountSimple( EZFO_DEVNAME, &_io_ezfo ) && chdir( EZFO_DEVNAME ":/" ) == 0 ) {
+  if ( fatMountSimple( EZFO_DEVNAME, &_io_ezfo ) && chdir( EZFO_DEVNAME ":/" ) == 0 ) {
     devname = EZFO_DEVNAME;
   } else if ( fatInitDefault() ) {
     devname = "fat";
-	} else {
+  } else {
     devname = NULL;
-	}
+  }
 
   if ( !devname ) {
     iprintf( "[FAIL] Failed to mount or init a FAT device.\n" );
@@ -64,7 +64,7 @@ int main() {
   u32 value; // Number in the example file
 
   irqInit();
-	irqEnable( IRQ_VBLANK ); // Enable IRQ_VBLANK for VBlankIntrWait
+  irqEnable( IRQ_VBLANK ); // Enable IRQ_VBLANK for VBlankIntrWait
 
   // libgba console
 	consoleDemoInit();
